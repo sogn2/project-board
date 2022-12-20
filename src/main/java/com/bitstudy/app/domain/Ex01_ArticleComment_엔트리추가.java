@@ -9,6 +9,7 @@ import org.springframework.data.annotation.LastModifiedDate;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
+
 @Entity
 @Getter
 @Table(indexes = {
@@ -16,7 +17,7 @@ import java.time.LocalDateTime;
         @Index(columnList = "createAt"),
         @Index(columnList = "createBy"),
 })
-public class ArticleComment {
+public class Ex01_ArticleComment_엔트리추가 {
     @Id     //pk키
     @GeneratedValue(strategy = GenerationType.IDENTITY) //autoincrement 1씩 자동증가
     private Long id;
