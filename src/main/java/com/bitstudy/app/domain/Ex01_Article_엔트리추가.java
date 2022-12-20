@@ -1,7 +1,6 @@
 package com.bitstudy.app.domain;
 
 import lombok.Getter;
-import lombok.NonNull;
 import lombok.Setter;
 import lombok.ToString;
 import org.springframework.data.annotation.CreatedBy;
@@ -28,7 +27,7 @@ import java.util.Set;
         @Index(columnList = "createAt"),
         @Index(columnList = "createBy"),
 })
-public class Article {
+public class Ex01_Article_엔트리추가 {
     @Id     //pk키
     @GeneratedValue(strategy = GenerationType.IDENTITY) //autoincrement 1씩 자동증가
     private Long id;
@@ -63,21 +62,21 @@ public class Article {
 
     /*Entity를 만들때는 무조건 기본 생성자가 필요 */
 
-    protected Article(){}
+    protected Ex01_Article_엔트리추가(){}
 
     /*
     *   사용자가 입력하는 값만 받기. 나머지는 시스템이 알엇 하게 해주면 됨.
     * */
 
-    private Article(String title, String content, String hashtag) {
+    private Ex01_Article_엔트리추가(String title, String content, String hashtag) {
         this.title = title;
         this.content = content;
         this.hashtag = hashtag;
     }
 
 /*정적 팩토리 메소드*/
-    public static Article of(String title, String content, String hashtag){
-        return new Article(title, content, hashtag);
+    public static Ex01_Article_엔트리추가 of(String title, String content, String hashtag){
+        return new Ex01_Article_엔트리추가(title, content, hashtag);
 
     }
 
@@ -96,7 +95,7 @@ public class Article {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Article article = (Article) o;
+        Ex01_Article_엔트리추가 article = (Ex01_Article_엔트리추가) o;
 //        return id.equals(article.id);
         return id!= null&& id.equals(article.id);
     }
