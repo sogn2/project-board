@@ -39,11 +39,11 @@ name 부분을 생략하면 원래 이름 사용.
         @Index(columnList = "createAt"),
         @Index(columnList = "createBy")
 })
-@EntityListeners(AuditingEntityListener.class)
+
 @Entity // Lombok 을 이용해서 클래스를 엔티티로 변경 @Entity 가 붙은 클래스는 JPA 가 관리하게 된다.
 @Getter // 모든 필드의 getter 들이 생성
 @ToString // 모든 필드의 toString 생성
-public class Article {
+public class Article extends AuditingFields {
 
     @Id // 전체 필드중에서 PK 표시 해주는 것 @Id 가 없으면 @Entity 어노테이션을 사용 못함
     @GeneratedValue(strategy = GenerationType.IDENTITY) // 해당 필드가 auto_increment 인 경우 @GeneratedValue 를 써서 자동으로 값이 생성되게 해줘야 한다. (기본키 전략)
@@ -87,8 +87,6 @@ public class Article {
 
 
 
-
-
     /**
      JPA auditing : JPA 에서 자동으로 세팅하게 해줄 때 사용하는 기능
      이거 하려면 config 파일이 별도로 있어야 한다.
@@ -96,11 +94,14 @@ public class Article {
      */
 
     //메타데이터
+/*
     @CreatedDate
     @Column(nullable = false)
     private LocalDateTime createAt; // 생성일자
-    /* 다른 생성일시 같은 것들은 알아낼 수 있는데, 최초 생성자는 (현재 코드 상태) 인증 받고 오지 않았기 때문에 따로 알아낼 수가 없다.
-     * 이 떄 만들어 놓은 jpaConfig 파일을 사용한다. */
+    */
+/* 다른 생성일시 같은 것들은 알아낼 수 있는데, 최초 생성자는 (현재 코드 상태) 인증 받고 오지 않았기 때문에 따로 알아낼 수가 없다.
+     * 이 떄 만들어 놓은 jpaConfig 파일을 사용한다. *//*
+
 
     @CreatedBy
     @Column(nullable = false,length = 100)
@@ -113,6 +114,7 @@ public class Article {
     @LastModifiedBy
     @Column(nullable = false,length = 100)
     private String modifiedBy; // 수정자
+*/
 
 //    public void setArticleComments(Set<ArticleComment> articleComments) {
 //        this.articleComments = articleComments;
