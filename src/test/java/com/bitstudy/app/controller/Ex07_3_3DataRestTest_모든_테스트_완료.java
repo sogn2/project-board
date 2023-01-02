@@ -1,15 +1,12 @@
 package com.bitstudy.app.controller;
 
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
-import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
-import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 
 import javax.transaction.Transactional;
 
@@ -28,22 +25,20 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 * 1) @WebMvcTest - 슬라이스 테스트에서 대표적인 어노테이션
 * */
 //@WebMvcTest
-@Disabled("Spring Data Rest 통합데이터는 현재 불필요하므로 제외시킴")/*클래스 레벨에 붙여서 해당 테스트클래스의 모든 메서드들을 체크하지 않게한다.
-이유는 테스트가 도 통과한걸 확인했고, 당장 개발하는데 계속 돌릴 필요가 없기 때문*/
 @SpringBootTest /* 이것만 있으면 Mocmvc를 알아볼 수가 없어서 @AutoConfigureMockMvc*/
 @AutoConfigureMockMvc
 @Transactional /*테스트를 돌리면 Hibernate 부분에 select 쿼리문이 나오면서 실제 db를 건드리는데, 테스트 끝난 이후에 db를 롤백 시키는 용도*/
-public class DataRestTest {
+public class Ex07_3_3DataRestTest_모든_테스트_완료 {
     /*  MockMvc 테스트 방법
         1) MockMvc 생성 ( 빈 준비)
         2) MockMvc 에게 요청에 대한 정보를 입력
         3) 요청에 대한 응답값을 expect를 이용해서 테스트를 한다.
         4) expect 다 통과 하면 테스트 통과
-    * 
+    *
     * */
     private  final MockMvc mvc;
 
-    public DataRestTest(@Autowired MockMvc mvc) {
+    public Ex07_3_3DataRestTest_모든_테스트_완료(@Autowired MockMvc mvc) {
         this.mvc = mvc;
     }
     @DisplayName("[api] 게시글 리스트 전체 조회")
