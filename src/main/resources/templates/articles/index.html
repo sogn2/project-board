@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>게시판 페이지</title>
+</head>
+<body>
+<header>헤더</header>
+<hr />
+<main>
+    <form action="#">
+        <select id="search-type"  name="search-type">
+            <option value="제목">제목</option>
+            <option value="본문">본문</option>
+            <option value="id">id</option>
+            <option value="닉네임">닉네임</option>
+            <option value="해시태그">해시태그</option>
+
+
+        </select>
+            <input type="search" placeholder="검색어를 입력하세요" name="search-value" id="search-value">
+        <button type="submit">검색</button>
+    </form>
+
+    <table>
+        <thead>
+            <tr>
+                <th>제목</th>
+                <th>해시태그</th>
+                <th>작성자</th>
+                <th>작성일</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1번글</td>
+                <td>#java</td>
+                <td>bitstudy</td>
+                <td>2023-01-04</td>
+            </tr>
+            <tr>
+                <td>2번글</td>
+                <td>#spring</td>
+                <td>bitstudy</td>
+                <td>2023-01-03</td>
+            </tr>
+            <tr>
+                <td>3번글</td>
+                <td>#mysql</td>
+                <td>bitstudy</td>
+                <td>2023-01-01</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <!--페이지네이션-->
+    <nav>
+        <table>
+            <tbody>
+                <tr>
+                    <td>이전</td>
+                    <td>1</td>
+                    <td>2</td>
+                    <td>3</td>
+                    <td>4</td>
+                    <td>5</td>
+
+                    <td>다음</td>
+                </tr>
+            </tbody>
+        </table>
+    </nav>
+</main>
+<footer></footer>
+</body>
+</html>
