@@ -12,12 +12,12 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 @WebMvcTest(ArticleController.class)
 @DisplayName("view 컨트롤러 - 게시글")
-class ArticleControllerTest {
+class Ex08_2_ArticleControllerTest_게시판_뷰_테스트 {
 
     private  final MockMvc mvc;
 
 
-    public ArticleControllerTest(@Autowired MockMvc mvc) {
+    public Ex08_2_ArticleControllerTest_게시판_뷰_테스트(@Autowired MockMvc mvc) {
         this.mvc = mvc;
     }
 @Test
