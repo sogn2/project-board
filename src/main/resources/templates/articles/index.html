@@ -1,14 +1,12 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html>
 <head>
     <meta charset="UTF-8">
     <title>게시판 페이지</title>
 </head>
 <body>
-<!--<header>헤더</header>-->
-<!--<hr />-->
-<header th:replace="~{header :: #header}"></header>
-<!--<header th:replace="header :: #header"></header>-->
+<header id="header"></header>
+
 
 <main>
     <form action="#">
@@ -74,6 +72,6 @@
         </table>
     </nav>
 </main>
-<header th:replace="footer :: #footer"></header>
+<footer id="footer"></footer>
 </body>
 </html>
