@@ -2,14 +2,16 @@ package com.bitstudy.app.repository;
 
 import com.bitstudy.app.config.JpaConfig;
 import com.bitstudy.app.domain.Article;
+import com.bitstudy.app.domain.UserAccount;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.context.annotation.Import;
-import static org.assertj.core.api.Assertions.assertThat;
-import javax.swing.text.html.parser.Entity;
+
 import java.util.List;
+
+import static org.assertj.core.api.Assertions.assertThat;
 
 @DataJpaTest //슬라이드 테스트
 /**슬라이드 테스트란
@@ -20,15 +22,18 @@ import java.util.List;
 안하면 config안에 명시해놨던 JpaAuditing 기능이 동작하지 않는다.
 
 */
-class Ex04_JpaRepositoryTest {
+class JpaRepositoryTest {
 /*db연동*/
 
- private final    Ex04_ArticleRepository articleRepository;
- private  final  Ex05_ArticleCommentRepository articleCommentRepository;
+ private final    ArticleRepository articleRepository;
+ private  final  ArticleCommentRepository articleCommentRepository;
 
-    public Ex04_JpaRepositoryTest(@Autowired Ex04_ArticleRepository articleRepository,@Autowired Ex05_ArticleCommentRepository articleCommentRepository) {
+ private final UserAccountRepository userAccountRepository;
+
+    public JpaRepositoryTest(@Autowired ArticleRepository articleRepository, @Autowired ArticleCommentRepository articleCommentRepository,@Autowired UserAccountRepository userAccountRepository) {
         this.articleRepository = articleRepository;
         this.articleCommentRepository = articleCommentRepository;
+        this.userAccountRepository = userAccountRepository;
     }
     /*
     *   - 트랜잭션시 사용하는 메서드
@@ -62,7 +67,9 @@ class Ex04_JpaRepositoryTest {
     @Test
     void insertTest(){
        Long prevCount =  articleRepository.count();
-    Article article =   Article.of("제목","내용","#해시태그");
+
+        UserAccount userAccount = userAccountRepository.save(UserAccount.of("bitstudy", "asdf", null, null, null));
+        Article article =   Article.of(userAccount,"제목","내용","#해시태그");
         articleRepository.save(article);
         assertThat( articleRepository.count()).isEqualTo(prevCount +1);
 //        Long currCount = articleRepository.count();

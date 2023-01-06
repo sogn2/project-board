@@ -1,14 +1,11 @@
 package com.bitstudy.app.domain;
+
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
-import org.springframework.data.annotation.CreatedBy;
-import org.springframework.data.annotation.CreatedDate;
-import org.springframework.data.annotation.LastModifiedBy;
-import org.springframework.data.annotation.LastModifiedDate;
 
 import javax.persistence.*;
-import java.time.LocalDateTime;
+import java.util.Objects;
 
 @Table(indexes = {
         @Index(columnList = "content"),
@@ -17,7 +14,7 @@ import java.time.LocalDateTime;
 })
 @Entity
 @Getter
-@ToString
+@ToString(callSuper = true) // 모든 필드의 toString 생성
 public class ArticleComment extends AuditingFields {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -33,7 +30,9 @@ public class ArticleComment extends AuditingFields {
           이건 필수 값이다. 라는 뜻으로 (optional = false) 걸어주기
           댓글은 여러개 : 게시글 1개  == N : 1 == ManyToOne
     */
-
+    @Setter
+    @ManyToOne(optional = false) // 필수 값이라는 뜻
+    private UserAccount userAccount;
 
     @Setter
     @Column(nullable = false, length = 500)
@@ -56,5 +55,28 @@ public class ArticleComment extends AuditingFields {
     @Column(nullable = false,length = 100)
     private String modifiedBy; // 수정자*/
 
+    protected ArticleComment() {
+    }
 
+    private ArticleComment(Article article, UserAccount userAccount, String content) {
+        this.article = article;
+        this.userAccount = userAccount;
+        this.content = content;
+    }
+    public static ArticleComment of (Article article, UserAccount userAccount, String content) {
+       return new ArticleComment ( article,  userAccount,  content);
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        ArticleComment that = (ArticleComment) o;
+        return id == that.id;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id);
+    }
 }
