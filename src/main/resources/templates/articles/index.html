@@ -9,7 +9,8 @@
     <meta charset="UTF-8">
     <title>게시판 페이지</title>
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
 
     <!-- 헤더 푸터 관련-->
     <link rel="stylesheet" href="/css/h_f.css">
@@ -19,11 +20,12 @@
 
 </head>
 <body>
-    <!-- 부트스트랩에서 제공하는 로고(헤더)나 sns 아이콘들(푸터)-->
-    <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+<!-- 부트스트랩에서 제공하는 로고(헤더)나 sns 아이콘들(푸터)-->
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
     <symbol id="bootstrap" viewBox="0 0 118 94">
         <title>Bootstrap</title>
-        <path fill-rule="evenodd" clip-rule="evenodd" d="M24.509 0c-6.733 0-11.715 5.893-11.492 12.284.214 6.14-.064 14.092-2.066 20.577C8.943 39.365 5.547 43.485 0 44.014v5.972c5.547.529 8.943 4.649 10.951 11.153 2.002 6.485 2.28 14.437 2.066 20.577C12.794 88.106 17.776 94 24.51 94H93.5c6.733 0 11.714-5.893 11.491-12.284-.214-6.14.064-14.092 2.066-20.577 2.009-6.504 5.396-10.624 10.943-11.153v-5.972c-5.547-.529-8.934-4.649-10.943-11.153-2.002-6.484-2.28-14.437-2.066-20.577C105.214 5.894 100.233 0 93.5 0H24.508zM80 57.863C80 66.663 73.436 72 62.543 72H44a2 2 0 01-2-2V24a2 2 0 012-2h18.437c9.083 0 15.044 4.92 15.044 12.474 0 5.302-4.01 10.049-9.119 10.88v.277C75.317 46.394 80 51.21 80 57.863zM60.521 28.34H49.948v14.934h8.905c6.884 0 10.68-2.772 10.68-7.727 0-4.643-3.264-7.207-9.012-7.207zM49.948 49.2v16.458H60.91c7.167 0 10.964-2.876 10.964-8.281 0-5.406-3.903-8.178-11.425-8.178H49.948z"></path>
+        <path fill-rule="evenodd" clip-rule="evenodd"
+              d="M24.509 0c-6.733 0-11.715 5.893-11.492 12.284.214 6.14-.064 14.092-2.066 20.577C8.943 39.365 5.547 43.485 0 44.014v5.972c5.547.529 8.943 4.649 10.951 11.153 2.002 6.485 2.28 14.437 2.066 20.577C12.794 88.106 17.776 94 24.51 94H93.5c6.733 0 11.714-5.893 11.491-12.284-.214-6.14.064-14.092 2.066-20.577 2.009-6.504 5.396-10.624 10.943-11.153v-5.972c-5.547-.529-8.934-4.649-10.943-11.153-2.002-6.484-2.28-14.437-2.066-20.577C105.214 5.894 100.233 0 93.5 0H24.508zM80 57.863C80 66.663 73.436 72 62.543 72H44a2 2 0 01-2-2V24a2 2 0 012-2h18.437c9.083 0 15.044 4.92 15.044 12.474 0 5.302-4.01 10.049-9.119 10.88v.277C75.317 46.394 80 51.21 80 57.863zM60.521 28.34H49.948v14.934h8.905c6.884 0 10.68-2.772 10.68-7.727 0-4.643-3.264-7.207-9.012-7.207zM49.948 49.2v16.458H60.91c7.167 0 10.964-2.876 10.964-8.281 0-5.406-3.903-8.178-11.425-8.178H49.948z"></path>
     </symbol>
     <symbol id="facebook" viewBox="0 0 16 16">
         <path d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951z"/>
@@ -37,101 +39,110 @@
 </svg>
 
 
-    <header id="header"></header>
+<header id="header"></header>
 
-    <main  class="container">
-        <!-- 검색 -->
-        <div class="row">
-            <div class="col-lg-12 card-margin">
-                <div class="card search-form">
-                    <div class="card-body p-0">
-                        <form id="search-form">
-                            <div class="row">
-                                <div class="col-12">
-                                    <div class="row no-gutters">
-                                        <div class="col-lg-3 col-md-3 col-sm-12 p-0">
-                                            <select class="form-control" id="exampleFormControlSelect1">
-                                                <option>제목</option>
-                                                <option>본문</option>
-                                                <option>ID</option>
-                                                <option>닉네임</option>
-                                                <option>해시태그</option>
-                                            </select>
-                                        </div>
-                                        <div class="col-lg-8 col-md-6 col-sm-12 p-0">
-                                            <input type="text" placeholder="Search..." class="form-control" id="search" name="search">
-                                        </div>
-                                        <div class="col-lg-1 col-md-3 col-sm-12 p-0">
-                                            <button type="submit" class="btn btn-base">
-                                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-search"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
-                                            </button>
-                                        </div>
+<main class="container">
+    <!-- 검색 -->
+    <div class="row">
+        <div class="col-lg-12 card-margin">
+            <div class="card search-form">
+                <div class="card-body p-0">
+                    <form id="search-form">
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="row no-gutters">
+                                    <div class="col-lg-3 col-md-3 col-sm-12 p-0">
+                                        <select class="form-control" id="exampleFormControlSelect1">
+                                            <option>제목</option>
+                                            <option>본문</option>
+                                            <option>ID</option>
+                                            <option>닉네임</option>
+                                            <option>해시태그</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-lg-8 col-md-6 col-sm-12 p-0">
+                                        <input type="text" placeholder="Search..." class="form-control" id="search"
+                                               name="search">
+                                    </div>
+                                    <div class="col-lg-1 col-md-3 col-sm-12 p-0">
+                                        <button type="submit" class="btn btn-base">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                                 viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                                 stroke-linecap="round" stroke-linejoin="round"
+                                                 class="feather feather-search">
+                                                <circle cx="11" cy="11" r="8"></circle>
+                                                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                                            </svg>
+                                        </button>
                                     </div>
                                 </div>
                             </div>
-                        </form>
-                    </div>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>
+    </div>
 
-        <table class="table">
-            <thead>
-            <tr>
-                <th>제목</th>
-                <th>해시태그</th>
-                <th>작성자</th>
-                <th>작성일</th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr>
-                <td>1번글</td>
-                <td>#java</td>
-                <td>bitstudy</td>
-                <td>2023-01-04</td>
-            </tr>
-            <tr>
-                <td>2번글</td>
-                <td>#spring</td>
-                <td>bitstudy</td>
-                <td>2023-01-03</td>
-            </tr>
-            <tr>
-                <td>3번글</td>
-                <td>#mysql</td>
-                <td>bitstudy</td>
-                <td>2023-01-01</td>
-            </tr>
-            </tbody>
-        </table>
+    <table class="table" id="article-table">
+        <thead>
+        <tr>
+            <th>제목</th>
+            <th>해시태그</th>
+            <th>작성자</th>
+            <th>작성일</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td class="title"><a>1번글</a></td>
+            <td class="hashtag"><a>#java</a></td>
+            <td class="user-id"><a>bitstudy</a></td>
+            <td class="create-at"><a>2023-01-04</a></td>
+        </tr>
+        <tr>
+            <td>2번글</td>
+            <td>#spring</td>
+            <td>bitstudy</td>
+            <td>2023-01-03</td>
+        </tr>
+        <tr>
+            <td>3번글</td>
+            <td>#mysql</td>
+            <td>bitstudy</td>
+            <td>2023-01-01</td>
+        </tr>
+        </tbody>
+    </table>
 
-        <!-- 페이지네이션 -->
-        <nav class="d-flex justify-content-center">
-            <ul class="pagination pagination-base pagination-boxed pagination-square mb-0">
-                <li class="page-item">
-                    <a class="page-link no-border" href="#">
-                        <span aria-hidden="true">«</span>
-                        <span class="sr-only">Previous</span>
-                    </a>
-                </li>
-                <li class="page-item active"><a class="page-link no-border" href="#">1</a></li>
-                <li class="page-item"><a class="page-link no-border" href="#">2</a></li>
-                <li class="page-item"><a class="page-link no-border" href="#">3</a></li>
-                <li class="page-item"><a class="page-link no-border" href="#">4</a></li>
-                <li class="page-item">
-                    <a class="page-link no-border" href="#">
-                        <span aria-hidden="true">»</span>
-                        <span class="sr-only">Next</span>
-                    </a>
-                </li>
-            </ul>
-        </nav>
+    <!-- 페이지네이션 -->
+    <nav class="d-flex justify-content-center">
+        <ul class="pagination pagination-base pagination-boxed pagination-square mb-0">
+            <li class="page-item">
+                <a class="page-link no-border" href="#">
+                    <span aria-hidden="true">«</span>
+                    <span class="sr-only">Previous</span>
+                </a>
+            </li>
+            <li class="page-item active"><a class="page-link no-border" href="#">1</a></li>
+            <li class="page-item"><a class="page-link no-border" href="#">2</a></li>
+            <li class="page-item"><a class="page-link no-border" href="#">3</a></li>
+            <li class="page-item"><a class="page-link no-border" href="#">4</a></li>
+            <li class="page-item">
+                <a class="page-link no-border" href="#">
+                    <span aria-hidden="true">»</span>
+                    <span class="sr-only">Next</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
 
-    </main>
+</main>
 
-    <footer id="footer"></footer>
+<footer id="footer"></footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+        crossorigin="anonymous"></script>
 </body>
 </html>
